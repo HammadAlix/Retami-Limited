@@ -1,0 +1,46 @@
+/* Official brand palette. Vanilla CSS only. */
+:root {
+  --color-deep-forest: #0C2A20;
+  --color-forest: #173D2D;
+  --color-emerald: #315F43;
+  --color-sage: #668E6E;
+  --color-soft-sage: #A9C8A2;
+  --color-pale-mint: #EAF2E7;
+  --color-ivory: #F9FAF6;
+  --page-gutter: clamp(24px, 6.2vw, 120px);
+  --interaction-ease: cubic-bezier(.4, 0, .2, 1);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--color-ivory); color: var(--color-deep-forest); font-family: "Segoe UI", Arial, Helvetica, sans-serif; -webkit-font-smoothing: antialiased; }
+button, textarea { font: inherit; }
+button { cursor: pointer; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--color-sage); outline-offset: 5px; }
+::selection { background: var(--color-soft-sage); color: var(--color-deep-forest); }
+[hidden] { display: none !important; }
+.skip-link { position: fixed; top: -100px; left: 20px; z-index: 50; padding: 12px 20px; background: var(--color-ivory); border: 1px solid var(--color-forest); }
+.skip-link:focus { top: 12px; }
+/* One motion contract for buttons and button-like links across every page.
+   These overrides intentionally take precedence over component hover rules. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+/* Owner explicitly requests the same smooth micro-interactions under reduced motion. */
+body :is(button, [role="button"], .contact-draft__email, .navbar__contact, .landing__button, .closing-cta__secondary, .about-link, .navbar__links > a, .site-footer__navigation > a, .site-footer__services-link, .site-footer__top, .about-contact__links > a) {
+  transform-origin: center;
+  transition: transform .3s var(--interaction-ease), background-color .3s var(--interaction-ease), color .3s var(--interaction-ease), border-color .3s var(--interaction-ease), box-shadow .3s var(--interaction-ease), opacity .3s var(--interaction-ease) !important;
+}
+@media (hover: hover) and (pointer: fine) {
+  body :is(button, [role="button"], .contact-draft__email, .navbar__contact, .landing__button, .closing-cta__secondary, .about-link, .navbar__links > a, .site-footer__navigation > a, .site-footer__services-link, .site-footer__top, .about-contact__links > a):hover:not(:disabled):not([aria-disabled="true"]) { transform: scale(1.05) !important; }
+}
+body :is(button, [role="button"], .contact-draft__email, .navbar__contact, .landing__button, .closing-cta__secondary, .about-link, .navbar__links > a, .site-footer__navigation > a, .site-footer__services-link, .site-footer__top, .about-contact__links > a):focus-visible:not(:disabled):not([aria-disabled="true"]) { transform: scale(1.05) !important; }
+body :is(button, [role="button"], .contact-draft__email, .navbar__contact, .landing__button, .closing-cta__secondary, .about-link, .navbar__links > a, .site-footer__navigation > a, .site-footer__services-link, .site-footer__top, .about-contact__links > a):active:not(:disabled):not([aria-disabled="true"]) { transform: scale(.98) !important; }
+body :is(button:disabled, [aria-disabled="true"]) { cursor: not-allowed; transform: none !important; }
+@media (prefers-reduced-motion: reduce) {
+  .navbar__links > :is(a, button)::before, .navbar__services > button::before,
+  .navbar__links > :is(a, button)::after, .navbar__services > button::after {
+    transition: transform .3s var(--interaction-ease), opacity .3s var(--interaction-ease), background-color .3s var(--interaction-ease) !important;
+  }
+}
