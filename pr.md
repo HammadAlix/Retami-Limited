@@ -476,3 +476,8 @@ submission and illustrative portfolio preview must remain clearly represented.
 - Owner will deploy on Vercel; application lives at the repository root.
 - Use Next.js preset, npm run build and default output directory.
 - No environment variables required for the current email-draft contact flow.
+
+## Testimonial card labels (2026-11-01)
+
+Remove the repeated SAMPLE TESTIMONIAL badge from cards. Retain the section-level
+design-preview notice until quotes and identities are replaced with approved feedback.

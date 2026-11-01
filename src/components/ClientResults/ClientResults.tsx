@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import "./client-results.css";
@@ -26,7 +26,7 @@ export default function ClientResults() {
             const offset = (index - active + testimonials.length) % testimonials.length;
             const position = offset === 0 ? "active" : offset === 1 ? "next" : offset === testimonials.length - 1 ? "previous" : "hidden";
             return <article key={item.category} className={`client-results__card client-results__card--${position}`} aria-hidden={index !== active} role="group" aria-roledescription="slide" aria-label={`${index + 1} of ${testimonials.length}: ${item.name}`}>
-              <div className="client-results__card-top"><span className="client-results__index">0{index + 1}</span><span className="client-results__badge">SAMPLE TESTIMONIAL</span></div>
+              <div className="client-results__card-top"><span className="client-results__index">0{index + 1}</span></div>
               <p className="client-results__category">{item.category}</p><h3>{item.title}</h3><blockquote className="client-results__description">“{item.quote}”</blockquote>
               <footer className="client-results__identity"><span className="client-results__avatar" aria-hidden="true">{item.initials}</span><div><p>{item.name}</p></div></footer>
             </article>;

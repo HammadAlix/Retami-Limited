@@ -826,3 +826,9 @@ Git in the application folder so package.json is at the repository root. Exclude
 node_modules, .next, local environment files and generated TypeScript output.
 Added deployment instructions to README. No deployment or external messages are
 part of this handoff. Production build passed during the preceding MVP review.
+
+## Step 58 - Simplify testimonial cards (2026-11-01)
+
+Owner requested removal of the repeated SAMPLE TESTIMONIAL wording and a GitHub
+push. Removed the card badges and unused badge CSS. Kept the section-level sample
+notice because the quotes and placeholder identities still await approved feedback.
